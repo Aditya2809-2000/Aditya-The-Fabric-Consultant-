@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Kumar Sasmal | Data Engineering & AI Portfolio</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Fix for header overlap: add scroll-padding for anchor navigation */
+        html {
+            scroll-padding-top: 80px;
+        }
+
+        /* Hero section background - More vibrant gradient */
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Enhanced card hover effects with vibrant colors */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #667eea;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Skill badges with vibrant colors */
+        .skill-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Timeline with vibrant colors */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Custom scrollbar with vibrant colors */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5a6fd8, #6a4190);
+        }
+        
+        /* Dark mode scrollbar */
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        
+        .dark ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        /* Mobile menu animation */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Accessibility: Focus outline for keyboard navigation */
+        a:focus, button:focus, input:focus, select:focus, textarea:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+
+        /* Hero section positioning fix */
+        #home {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Ensure content doesn't overlap with hero */
+        #main-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Vibrant button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced section backgrounds */
+        .section-alt {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .dark .section-alt {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 overflow-x-hidden">
+    <div id="loading" class="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50">
+        <div class="text-center">
+            <div class="w-16 h-16 border-4 border-gray-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p class="text-lg font-semibold text-gray-500 dark:text-gray-400">Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+    
+    <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-80 h-full bg-white dark:bg-gray-800 z-50 p-6 shadow-2xl">
+        <div class="flex justify-between items-center mb-8">
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Menu</h3>
+            <button id="close-menu" class="text-2xl text-gray-600 dark:text-gray-300" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="space-y-4">
+            <a href="#home" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                <i class="fas fa-home mr-3"></i>Home
+            </a>
+            <a href="#about" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                <i class="fas fa-user mr-3"></i>About
+            </a>
+            <a href="#skills" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                <i class="fas fa-cogs mr-3"></i>Skills
+            </a>
+            <a href="#experience" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                <i class="fas fa-briefcase mr-3"></i>Experience
+            </a>
+            <a href="#projects" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                <i class="fas fa-project-diagram mr-3"></i>Projects
+            </a>
+            <a href="#contact" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                <i class="fas fa-envelope mr-3"></i>Contact
+            </a>
+        </nav>
+    </div>
+
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-700 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="#home" class="text-2xl font-bold text-gray-800 dark:text-white hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    Aditya Kumar Sasmal
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium focus:outline-none">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium focus:outline-none">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium focus:outline-none">Skills</a>
+                    <a href="#experience" class="nav-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium focus:outline-none">Experience</a>
+                    <a href="#projects" class="nav-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium focus:outline-none">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium focus:outline-none">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none" aria-label="Toggle dark mode">
+                        <i class="fas fa-sun dark:hidden text-xl"></i>
+                        <i class="fas fa-moon hidden dark:block text-xl"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none" aria-label="Open mobile menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="pt-24 md:pt-28">
+        <section id="home" class="min-h-screen flex items-center hero-bg relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10 py-20">
+                <div class="max-w-4xl mx-auto">
+                    <div class="w-40 h-40 mx-auto mb-8 relative" data-aos="zoom-in" data-aos-duration="1000">
+                        <div class="w-full h-full rounded-full bg-white/20 backdrop-blur-sm border-4 border-white/30 overflow-hidden">
+                             <img src="./1747228062684.jpeg" alt="Aditya Kumar Sasmal Profile" class="w-full h-full object-cover rounded-full">
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight" data-aos="fade-up" data-aos-delay="200">
+                        <span class="block">Microsoft Fabric Data Consultant</span>
+                        <span class="block text-gray-200 font-normal">Transforming Data into Impact</span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl mb-4 font-light opacity-90" data-aos="fade-up" data-aos-delay="400">
+                        DP-600 certified with 2 years of experience
+                    </p>
+                    
+                    <p class="text-lg mb-12 opacity-80 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="600">
+                        I build end-to-end pipelines that cut data latency by 25% and boost conversions by 25%. I also leverage Gen-AI automations (n8n + LLM) to save 35% in documentation time.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="800">
+                        <a href="#projects" class="btn-primary px-8 py-4 text-white rounded-full font-semibold transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-rocket mr-2"></i>View Portfolio
+                        </a>
+                        <a href="#contact" class="btn-secondary px-8 py-4 text-white rounded-full font-semibold transform hover:scale-105">
+                            <i class="fas fa-handshake mr-2"></i>Hire Me
+                        </a>
+                        <a href="https://drive.google.com/file/d/17sTxTrkAVwem93PAOyk2JdOFGOczx_ZA/view?usp=sharing" target="_blank" class="px-8 py-4 bg-white/20 backdrop-blur-sm border-2 border-white/70 text-white rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all transform hover:scale-105">
+                            <i class="fas fa-download mr-2"></i>Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-white text-2xl opacity-70"></i>
+            </div>
+        </section>
+    </main>
+
+        <section id="about" class="py-20 bg-white dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right" data-aos-delay="200">
+                        <div class="text-center md:text-left mb-8">
+                            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white">About Me</h2>
+                            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto md:mx-0 rounded-full"></div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
+                            Microsoft Fabric Data Engineer
+                        </h3>
+                        <p class="text-lg leading-relaxed mb-6 text-gray-600 dark:text-gray-300">
+                            An MS-Fabric Data Engineer (DP-600 certified) with 2 years of experience building end-to-end pipelines (ADF → Databricks → Synapse) that cut data latency by 25% and boosted conversions by 25%.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-8 text-gray-600 dark:text-gray-300">
+                            I am adept at using Gen-AI automations (n8n + LLM) to save 35% of documentation time. I am ready to deliver the same impact in a junior role.
+                        </p>
+                        
+                        <div class="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/adityakrsmal/" target="_blank" rel="noopener" class="w-12 h-12 bg-gray-600 text-white rounded-full flex items-center justify-center hover:bg-gray-700 transform hover:scale-110 transition-all" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Aditya2809-2000" target="_blank" rel="noopener" class="w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-900 transform hover:scale-110 transition-all" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:adityasasmal.uk@gmail.com" class="w-12 h-12 bg-gray-600 text-white rounded-full flex items-center justify-center hover:bg-gray-700 transform hover:scale-110 transition-all" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6" data-aos="fade-left" data-aos-delay="400">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-2xl card-hover">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-gray-600 text-white rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-800 dark:text-white">Education</h4>
+                            </div>
+                            <div class="space-y-3">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 dark:text-white">MSc Computer Science (Artificial Intelligence Major)</h5>
+                                    <p class="text-gray-600 dark:text-gray-300">University of Nottingham, United Kingdom (Sep, 2022 – Dec, 2023)</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 dark:text-white">B-Tech in Information Technology</h5>
+                                    <p class="text-gray-600 dark:text-gray-300">University of Mumbai, India (Jul, 2018 – May, 2022)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-2xl card-hover">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-gray-600 text-white rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-800 dark:text-white">Relevant Certifications</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span class="text-gray-700 dark:text-gray-300">Microsoft Fabric Analytics Engineer Associate, DP-600</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span class="text-gray-700 dark:text-gray-300">Microsoft Azure Fundamentals, AZ-900</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 section-alt">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white">Skills & Expertise</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4 rounded-full"></div>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                        A comprehensive toolkit for modern data engineering and AI solutions
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-gray-600 text-white rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-database text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-6 text-gray-800 dark:text-white">Data Engineering</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Microsoft Fabric</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Databricks</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">ADLS Gen2</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Azure Data Factory</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Azure Synapse</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-gray-600 text-white rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-code text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-6 text-gray-800 dark:text-white">Programming</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">SQL</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">NoSQL</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Spark</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Pandas</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Scikit-learn</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-gray-600 text-white rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-brain text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-6 text-gray-800 dark:text-white">AI & Machine Learning</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">GenAI</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">LLM</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">NLP</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Deep Learning</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">GeminiAPI</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Machine Learning</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-16 h-16 bg-gray-600 text-white rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-chart-bar text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-6 text-gray-800 dark:text-white">Visualization & Business Skills</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Power BI</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Microsoft Excel</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Root Cause Analysis</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">BRD Documentation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="500">
+                        <div class="w-16 h-16 bg-gray-600 text-white rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-robot text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-6 text-gray-800 dark:text-white">Automation & Tools</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">n8n</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Streamlit</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">SMOTE</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">PCA</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">word2vec</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="600">
+                        <div class="w-16 h-16 bg-gray-600 text-white rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-users text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-6 text-gray-800 dark:text-white">General Skills</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Stakeholder Collaboration</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Cross-Functional Collaboration</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Technical Documentation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-20 bg-white dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white">Experience Timeline</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4 rounded-full"></div>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                        My professional journey in data engineering and AI consulting
+                    </p>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
+                    
+                    <div class="space-y-12">
+                        <div class="relative pl-12 timeline-item" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="text-xl md:text-2xl font-bold mb-1 text-gray-800 dark:text-white">Data Consultant</h3>
+                            <p class="text-lg font-semibold text-gray-600 dark:text-gray-400 mb-2">ICON Resources</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">June 2024 – Present</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                                <li>Data Architecture:** Architected an enterprise-grade Medallion Lakehouse infrastructure for medical clients, enabling advanced business intelligence capabilities and accelerating data-driven decision-making by 25%.</li>
+                                <li>Innovation Leadership:** Spearheaded the development of an Agentic AI and LLM-powered Talent Sourcing Solution, reducing recruitment cycle time by 40%.</li>
+                                <li>Automation Excellence:** Engineered an AI-driven IT Consultant Assistant to automate BRDs, email communications, and technical documentation, improving operational efficiency by 35%.</li>
+                                <li>Knowledge Transfer & Mentorship:** Led comprehensive training programs in AI applications and Power BI, enhancing productivity in data-driven product development.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="relative pl-12 timeline-item" data-aos="fade-up" data-aos-delay="200">
+                            <h3 class="text-xl md:text-2xl font-bold mb-1 text-gray-800 dark:text-white">Associate Consultant</h3>
+                            <p class="text-lg font-semibold text-gray-600 dark:text-gray-400 mb-2">Delphi Consulting</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">May, 2024 – November, 2024</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                                <li>Stakeholder Management: Delivered AI-powered Copilot solutions for Al Masaood, driving a 25% boost in conversions through KPI alignment and workflow automation.</li>
+                                <li>Cross-Functional Collaboration: Spearheaded a 10-member team to design a unified Microsoft Fabric data infrastructure for HUDA Beauty, enabling scalable analytics.</li>
+                                <li>Performance Tracking: Designed Power BI dashboards to monitor financial health, reducing attrition by 15% via real-time insights and targeted interventions.</li>
+                            </ul>
+                        </div>
+
+                        <div class="relative pl-12 timeline-item" data-aos="fade-up" data-aos-delay="300">
+                            <h3 class="text-xl md:text-2xl font-bold mb-1 text-gray-800 dark:text-white">Research Assistant</h3>
+                            <p class="text-lg font-semibold text-gray-600 dark:text-gray-400 mb-2">University of Nottingham, UK</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">March, 2023 – March, 2024</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                                <li>Model Optimization: Executed 10-fold cross-validation and feature selection, improving accuracy by eliminating non-essential variables.</li>
+                                <li>Healthcare Analytics: Analyzed vaccination trends, identifying a higher seasonal flu uptake compared to H1N1, aligning with medical guidelines.</li>
+                                <li>Research Documentation: Documented comprehensive flu vaccine uptake models using 10 ML algorithms, achieving an 82% ROC-AUC score with Gradient Boosting.</li>
+                            </ul>
+                        </div>
+
+                        <div class="relative pl-12 timeline-item" data-aos="fade-up" data-aos-delay="400">
+                            <h3 class="text-xl md:text-2xl font-bold mb-1 text-gray-800 dark:text-white">Data Analyst</h3>
+                            <p class="text-lg font-semibold text-gray-600 dark:text-gray-400 mb-2">Paralab Labs Pvt Ltd, India</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Sep, 2021 – Sep, 2022</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                                <li>Stakeholder Collaboration: Partnered with finance and R&D teams to align analytics with business goals, driving a 15% revenue increase through data-driven pricing and inventory strategies.</li>
+                                <li>Data Governance: Oversaw the analysis of 5 TB of clinical data, ensuring clean, actionable insights for executive decision-making.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 section-alt">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white">Featured Projects</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4 rounded-full"></div>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                        Showcase of innovative data solutions and AI implementations
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">IT Consultant Assistant</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                An AI assistant engineered to automate BRDs, email communications, and technical documentation.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Streamlit</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">NLP</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">GeminiAPI</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://consultingassistantai.streamlit.app/" target="_blank" class="btn-primary px-6 py-2 text-white rounded-full font-semibold">
+                                    <i class="fas fa-play-circle mr-2"></i>Live Demo
+                                </a>
+                                <a href="https://github.com/Aditya2809-2000/ConsultingAssistantAI" target="_blank" class="px-6 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-full font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                    <i class="fab fa-github mr-2"></i>GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="200">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Legal AI Assistant</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                An AI-powered application using LLMs to analyze legal documents for key clauses and risk assessment.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Streamlit</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">NLP</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">GeminiAPI</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://legal-document-review-system.streamlit.app/" target="_blank" class="btn-primary px-6 py-2 text-white rounded-full font-semibold">
+                                    <i class="fas fa-play-circle mr-2"></i>Live Demo
+                                </a>
+                                <a href="https://github.com/Aditya2809-2000/legal-document-review-system" target="_blank" class="px-6 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-full font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                    <i class="fab fa-github mr-2"></i>GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="300">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Patient Care Data Analysis & Reporting System</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Automated data cleaning and reporting with Excel VBA, creating real-time Power BI dashboards to improve resource allocation.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Excel</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">VBA</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Power BI</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">DAX</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="400">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">HR Data Analytics Attrition Insights Dashboard</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                A Power BI dashboard to analyze attrition rates, highlighting key trends and providing insights for targeted interventions.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Power BI</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">DAX</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Data Analytics</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="500">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Mobile Market Classification</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Developed scalable ETL pipelines on AWS and used dashboards to optimize marketing strategies, increasing sales by 15%.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">AWS</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">S3</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Glue</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Athena</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/Aditya2809-2000/Mobile-Market-Classification" target="_blank" class="btn-primary px-6 py-2 text-white rounded-full font-semibold">
+                                    <i class="fab fa-github mr-2"></i>GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="600">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Bankruptcy Prediction Analysis</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Developed machine learning models for bankruptcy prediction, improving performance by 30% and achieving 74% accuracy with XGBoost.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">SQL</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Scikit-learn</span>
+                                <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">XGBoost</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/Aditya2809-2000/Bankruptcy-Prediction-Analysis" target="_blank" class="btn-primary px-6 py-2 text-white rounded-full font-semibold">
+                                    <i class="fab fa-github mr-2"></i>GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div data-aos="fade-right">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Publications & Articles</h3>
+                        <div class="space-y-6">
+                            <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm card-hover">
+                                <h4 class="font-semibold text-lg mb-2 text-gray-800 dark:text-white">AI-Powered Security Surveillance & Social Distancing System</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Published on IJRES Research</p>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    A research paper on developing an AI system for security surveillance and social distancing.
+                                </p>
+                                <a href="https://github.com/Aditya2809-2000/-AI-Driven-Surveillance-The-Security-App-for-Real-Time-Safety-and-Compliance-" target="_blank" class="inline-block mt-4 text-gray-600 dark:text-gray-400 hover:underline">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                            </div>
+                            <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm card-hover">
+                                <h4 class="font-semibold text-lg mb-2 text-gray-800 dark:text-white">The Development of Supply Chain Management using Big Data Analytics</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Published on IJERT Research</p>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    A research paper focusing on how big data analytics can be applied to develop supply chain management systems.
+                                </p>
+                                <a href="#" class="inline-block mt-4 text-gray-600 dark:text-gray-400 hover:underline">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div data-aos="fade-left">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Client Testimonials</h3>
+                        <div class="space-y-6">
+                            <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded-xl shadow-md card-hover">
+                                <i class="fas fa-quote-left text-gray-500 text-3xl mb-4"></i>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                                    "His ability to architect enterprise-grade Medallion Lakehouse infrastructure enabled advanced business intelligence and accelerated data-driven decision-making by 25%."
+                                </p>
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-gray-300 dark:bg-gray-600 rounded-full mr-3"></div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800 dark:text-white"></p>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded-xl shadow-md card-hover">
+                                <i class="fas fa-quote-left text-gray-500 text-3xl mb-4"></i>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                                    "Aditya delivered AI-powered Copilot solutions that drove a 25% boost in conversions through KPI alignment and workflow automation."
+                                </p>
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-gray-300 dark:bg-gray-600 rounded-full mr-3"></div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800 dark:text-white"></p>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 section-alt">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white">Let's Connect</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4 rounded-full"></div>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                        Ready to transform your data into actionable insights? Let's discuss your next project.
+                    </p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-white dark:bg-gray-800 p-8 md:p-12 rounded-2xl shadow-xl flex flex-col items-center space-y-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-envelope text-gray-600 dark:text-gray-400 text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 dark:text-white">Email</h4>
+                                <a href="mailto:adityasasmal.uk@gmail.com" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white break-all">adityasasmal.uk@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i class="fab fa-linkedin-in text-blue-700 dark:text-blue-400 text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 dark:text-white">LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/adityakrsmal/" target="_blank" rel="noopener" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white break-all">linkedin.com/in/adityakrsmal</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i class="fab fa-github text-gray-700 dark:text-gray-300 text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 dark:text-white">GitHub</h4>
+                                <a href="https://github.com/Aditya2809-2000" target="_blank" rel="noopener" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white break-all">github.com/Aditya2809-2000</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i class="fab fa-whatsapp text-green-500 text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 dark:text-white">WhatsApp (India)</h4>
+                                <a href="https://wa.me/919175387285" target="_blank" rel="noopener" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white break-all">+91 9175387285</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 dark:bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Aditya Kumar Sasmal</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Transforming businesses through innovative data engineering and AI solutions. 
+                        Let's build the future of data-driven decision making together.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/adityakrsmal/" target="_blank" rel="noopener" class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/Aditya2809-2000" target="_blank" rel="noopener" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:adityasasmal.uk@gmail.com" class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#skills" class="text-gray-300 hover:text-white transition-colors">Skills</a></li>
+                        <li><a href="#experience" class="text-gray-300 hover:text-white transition-colors">Experience</a></li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Data Engineering</li>
+                        <li>AI/ML Consulting</li>
+                        <li>Business Intelligence</li>
+                        <li>Cloud Analytics</li>
+                        <li>Process Automation</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">
+                    &copy; <span id="year"></span> Aditya Kumar Sasmal. All rights reserved. 
+                    <span class="text-gray-400">Crafted with passion for data excellence.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollTop" class="fixed bottom-8 right-8 w-12 h-12 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-900 transition-all transform hover:scale-110 opacity-0 invisible" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Loading screen
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            loading.style.opacity = '0';
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 500);
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme or default to light mode
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.classList.toggle('dark', savedTheme === 'dark');
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const theme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const closeMenu = document.getElementById('close-menu');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        closeMenu.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        // Close mobile menu when clicking on nav links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Smooth scrolling for navigation links (with scroll-padding-top for header)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.length > 1 && document.querySelector(href)) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    const header = document.getElementById('main-header');
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight + 1;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            const header = document.getElementById('main-header');
+            const headerHeight = header ? header.offsetHeight : 0;
+            const scrollY = window.scrollY + headerHeight + 2;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-gray-900', 'dark:text-white');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-gray-900', 'dark:text-white');
+                }
+            });
+        });
+
+        // Scroll to top button functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.remove('opacity-0', 'invisible');
+                scrollTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                scrollTopBtn.classList.add('opacity-0', 'invisible');
+                scrollTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add form submission logic here
+            alert('Thank you for your message! I will get back to you soon.');
+        });
+
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Remove parallax effect to prevent scroll overlap issues
+        // The hero section now has proper z-index positioning
+
+        // Enhanced card interactions
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.03)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Accessibility: Close mobile menu with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
